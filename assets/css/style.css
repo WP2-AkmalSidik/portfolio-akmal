@@ -54,6 +54,48 @@
     hsl(35, 100%, 68%)
   );
 
+  /* Downlaod BTN */
+  .download-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      background: var(--onyx);
+      color: var(--orange-yellow-crayola);
+      border: 1px solid var(--vegas-gold);
+      border-radius: 6px;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 4px var(--smoky-black);
+    }
+  
+    .download-btn .btn-icon {
+      display: flex;
+      font-size: 1rem;
+    }
+  
+    .download-btn:hover {
+      background: var(--eerie-black-1);
+      color: var(--white-1);
+      border-color: var(--orange-yellow-crayola);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      transform: translateY(-2px);
+    }
+  
+    .download-btn:active {
+      transform: translateY(0);
+      box-shadow: 0 2px 4px var(--smoky-black);
+    }
+  
+    /* Jika ingin versi dengan text gradient */
+    .download-btn.gradient .btn-text {
+      background: var(--text-gradient-yellow);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
   /* solid */
 
   --jet: hsl(0, 0%, 22%);
