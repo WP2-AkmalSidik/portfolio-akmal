@@ -118,6 +118,53 @@ for (let i = 0; i < formInputs.length; i++) {
   });
 }
 
+// form submit and toast notification logic
+const toast = document.querySelector("[data-toast]");
+const toastClose = document.querySelector("[data-toast-close]");
+
+if (form) {
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    
+    // Change button text and disable it while sending
+    const originalText = formBtn.innerHTML;
+    formBtn.innerHTML = "<ion-icon name='sync-outline' class='spin'></ion-icon> <span>Mengirim...</span>";
+    formBtn.disabled = true;
+
+    fetch(form.action, {
+      method: "POST",
+      body: new FormData(form),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        // Show Toast
+        if (toast) toast.classList.add("active");
+        
+        // Hide Toast after 5 seconds
+        setTimeout(() => {
+          if (toast) toast.classList.remove("active");
+        }, 5000);
+
+        // Reset form
+        form.reset();
+        formBtn.innerHTML = originalText;
+        formBtn.disabled = true; // Disabled again because form is now empty
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+        formBtn.innerHTML = originalText;
+        formBtn.disabled = false;
+        alert("Mohon maaf, terjadi kesalahan saat mengirim pesan. Silakan coba lagi.");
+      });
+  });
+}
+
+if (toastClose) {
+  toastClose.addEventListener("click", function () {
+    toast.classList.remove("active");
+  });
+}
+
 // page navigation variables
 const navigationLinks = document.querySelectorAll("[data-nav-link]");
 const pages = document.querySelectorAll("[data-page]");
