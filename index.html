@@ -773,7 +773,7 @@
 
             <ul class="project-list">
               
-              <li class="project-item active" data-filter-item data-category="applications">
+              <li class="project-item active" data-filter-item data-category="applications" data-project-desc="Aplikasi web terintegrasi untuk Yayasan Madena. Arsitekturnya terdiri dari tiga layanan utama: landing page, portal manajemen utama (madena-app), dan integrasi otomatis dengan WhatsApp Bot untuk kemudahan notifikasi kepada pengurus maupun donatur.">
                 <a href="#">
                   <figure class="project-img">
                     <div class="project-item-icon-box">
@@ -793,7 +793,7 @@
                 </a>
               </li>
 
-              <li class="project-item active" data-filter-item data-category="web development">
+              <li class="project-item active" data-filter-item data-category="web development" data-project-desc="Sistem absensi komprehensif berbasis web menggunakan framework Laravel (PHP). Dilengkapi dengan environment Docker & Nginx untuk kemudahan proses deployment, serta manajemen database tangguh untuk merekam data kehadiran (clock-in/out) secara real-time.">
                 <a href="#">
                   <figure class="project-img">
                     <div class="project-item-icon-box">
@@ -812,7 +812,7 @@
                   <p class="project-category">Web development</p>
                 </a>
               </li>
-              <li class="project-item active" data-filter-item data-category="web development">
+              <li class="project-item active" data-filter-item data-category="web development" data-project-desc="Platform ekosistem terpadu untuk agen travel haji & umrah (PaKeM Tours). Memiliki arsitektur modular yang memisahkan aplikasi untuk landing page publik, sistem khusus tim marketing, serta manajemen operasional internal agen.">
                 <a href="#">
                   <figure class="project-img">
                     <div class="project-item-icon-box">
@@ -832,7 +832,7 @@
                 </a>
               </li>
 
-              <li class="project-item active" data-filter-item data-category="web development">
+              <li class="project-item active" data-filter-item data-category="web development" data-project-desc="Sistem backoffice tangguh berbasis Laravel untuk internal Salam Travel. Dirancang khusus sebagai pusat kontrol (dashboard administrator) dalam pemrosesan data jamaah, manajemen keuangan, serta pendaftaran paket keberangkatan.">
                 <a href="#">
                   <figure class="project-img">
                     <div class="project-item-icon-box">
@@ -852,7 +852,7 @@
                 </a>
               </li>
 
-              <li class="project-item active" data-filter-item data-category="web design">
+              <li class="project-item active" data-filter-item data-category="web design" data-project-desc="Aplikasi V-Care, sebuah sistem manajemen operasional bengkel (Arnes) berskala penuh menggunakan Laravel. Dilengkapi dengan pengolahan struktur database yang aman dan dashboard admin terpusat untuk mempercepat alur layanan servis konsumen.">
                 <a href="#">
                   <figure class="project-img">
                     <div class="project-item-icon-box">
@@ -872,7 +872,7 @@
                 </a>
               </li>
 
-              <li class="project-item active" data-filter-item data-category="applications">
+              <li class="project-item active" data-filter-item data-category="applications" data-project-desc="Sistem arsitektur backend berkinerja tinggi (Ngebon). Dibangun dengan bahasa pemrograman Go (Golang) pada sisi API Server (core pkg & internal), dengan beberapa frontend terpisah seperti dashboard admin, landing page, dan aplikasi klien Gowa.">
                 <a href="#">
                   <figure class="project-img">
                     <div class="project-item-icon-box">
@@ -892,7 +892,7 @@
                 </a>
               </li>
 
-              <li class="project-item active" data-filter-item data-category="web design">
+              <li class="project-item active" data-filter-item data-category="web design" data-project-desc="Konsep eksplorasi desain antarmuka (UI/UX) untuk website properti Real Estate yang mewah dan bersih. Fokus pada tipografi modern, pencarian properti yang intuitif, serta penempatan galeri rumah yang memanjakan mata bagi calon pembeli.">
                 <a href="#">
                   <figure class="project-img">
                     <div class="project-item-icon-box">
@@ -912,7 +912,7 @@
                 </a>
               </li>
 
-              <li class="project-item active" data-filter-item data-category="web design">
+              <li class="project-item active" data-filter-item data-category="web design" data-project-desc="Prototipe desain antarmuka modern yang ditujukan untuk organisasi nirlaba atau yayasan pendidikan. Menonjolkan tata letak yang bersih demi transparansi kegiatan, donasi, serta penyampaian visi misi secara emosional dan interaktif.">
                 <a href="#">
                   <figure class="project-img">
                     <div class="project-item-icon-box">
@@ -932,7 +932,7 @@
                 </a>
               </li>
 
-              <li class="project-item active" data-filter-item data-category="web development">
+              <li class="project-item active" data-filter-item data-category="web development" data-project-desc="Aplikasi digitalisasi Check Sheet inspeksi kendaraan standar Suzuki berbasis Laravel. Menggunakan Docker containerization agar mudah dikelola dalam server tim mekanik untuk pelaporan inspeksi kualitas (QC) secara langsung dan sistematis.">
                 <a href="#">
                   <figure class="project-img">
                     <div class="project-item-icon-box">
@@ -1010,6 +1010,43 @@
             </form>
           </section>
         </article>
+        <!--
+          - project modal
+        -->
+
+        <div class="modal-container" data-project-modal-container>
+          <div class="overlay" data-project-overlay></div>
+
+          <section class="testimonials-modal">
+            <button class="modal-close-btn" data-project-modal-close-btn>
+              <ion-icon name="close-outline"></ion-icon>
+            </button>
+
+            <div class="modal-img-wrapper" style="margin-bottom: 20px;">
+              <figure class="modal-avatar-box" style="width: 100%; border-radius: 14px; background: none; box-shadow: none;">
+                <img
+                  src=""
+                  alt="project image"
+                  style="width: 100%; border-radius: 14px; object-fit: cover; aspect-ratio: 16/9;"
+                  data-project-modal-img
+                />
+              </figure>
+            </div>
+
+            <div class="modal-content">
+              <h4 class="h3 modal-title" data-project-modal-title>Project Name</h4>
+
+              <time data-project-modal-category>Category</time>
+
+              <div data-project-modal-text>
+                <p>
+                  Project Description
+                </p>
+              </div>
+            </div>
+          </section>
+        </div>
+
       </div>
     </main>
 

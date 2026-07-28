@@ -137,3 +137,42 @@ for (let i = 0; i < navigationLinks.length; i++) {
     }
   });
 }
+
+// project modal variables
+const projectModalContainer = document.querySelector("[data-project-modal-container]");
+const projectModalCloseBtn = document.querySelector("[data-project-modal-close-btn]");
+const projectOverlay = document.querySelector("[data-project-overlay]");
+
+const projectModalImg = document.querySelector("[data-project-modal-img]");
+const projectModalTitle = document.querySelector("[data-project-modal-title]");
+const projectModalCategory = document.querySelector("[data-project-modal-category]");
+const projectModalText = document.querySelector("[data-project-modal-text]");
+
+const projectItems = document.querySelectorAll(".project-item");
+
+// project modal toggle function
+const projectModalFunc = function () {
+  projectModalContainer.classList.toggle("active");
+  projectOverlay.classList.toggle("active");
+};
+
+// add click event to all project items
+for (let i = 0; i < projectItems.length; i++) {
+  projectItems[i].addEventListener("click", function (e) {
+    e.preventDefault();
+    projectModalImg.src = this.querySelector("img").src;
+    projectModalImg.alt = this.querySelector("img").alt;
+    projectModalTitle.innerHTML = this.querySelector(".project-title").innerHTML;
+    projectModalCategory.innerHTML = this.querySelector(".project-category").innerHTML;
+    
+    // Check if there is a specific description, otherwise use a default one
+    let desc = this.dataset.projectDesc || "Deskripsi lengkap untuk proyek " + this.querySelector(".project-title").innerHTML + " belum tersedia. Proyek ini dikembangkan dengan fokus pada performa yang maksimal dan pengalaman pengguna yang responsif.";
+    projectModalText.innerHTML = "<p>" + desc + "</p>";
+
+    projectModalFunc();
+  });
+}
+
+// add click event to project modal close button
+if(projectModalCloseBtn) projectModalCloseBtn.addEventListener("click", projectModalFunc);
+if(projectOverlay) projectOverlay.addEventListener("click", projectModalFunc);
