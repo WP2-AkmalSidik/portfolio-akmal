@@ -134,6 +134,9 @@ if (form) {
     fetch(form.action, {
       method: "POST",
       body: new FormData(form),
+      headers: {
+        'Accept': 'application/json'
+      }
     })
       .then((response) => response.json())
       .then((data) => {
