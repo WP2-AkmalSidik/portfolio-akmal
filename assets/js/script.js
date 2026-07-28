@@ -131,12 +131,21 @@ if (form) {
     formBtn.innerHTML = "<ion-icon name='sync-outline' class='spin'></ion-icon> <span>Mengirim...</span>";
     formBtn.disabled = true;
 
+    // Convert FormData to JSON
+    const formData = new FormData(form);
+    const object = {};
+    formData.forEach((value, key) => {
+      object[key] = value;
+    });
+    const json = JSON.stringify(object);
+
     fetch(form.action, {
       method: "POST",
-      body: new FormData(form),
       headers: {
-        'Accept': 'application/json'
-      }
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: json
     })
       .then((response) => response.json())
       .then((data) => {
