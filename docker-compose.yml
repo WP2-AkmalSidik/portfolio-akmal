@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   portfolio:
     build: 
@@ -7,22 +5,16 @@ services:
       dockerfile: Dockerfile
     container_name: portfolio-jodev
     restart: unless-stopped
-    # Hapus blok ports karena Traefik akan menangani routing secara internal (tidak ada konflik port)
     labels:
       - "traefik.enable=true"
-      # Rule domain, mencakup root domain dan www
-      - "traefik.http.routers.portfolio.rule=Host(`jodev.my.id`, `www.jodev.my.id`)"
+      - "traefik.http.routers.portfolio.rule=Host(`jodev.my.id`) || Host(`www.jodev.my.id`)"
       - "traefik.http.routers.portfolio.entrypoints=websecure"
-      # Gunakan resolver SSL yang sama dengan konfigurasi madena-app (Let's Encrypt)
       - "traefik.http.routers.portfolio.tls.certresolver=myresolver"
-      # Arahkan Traefik ke port 80 di dalam container Nginx
       - "traefik.http.services.portfolio.loadbalancer.server.port=80"
     networks:
       - madena_network
 
 networks:
   madena_network:
-    external:
-      # Asumsi nama external network dari my-madena adalah my-madena_madena_network
-      # Anda bisa mengeceknya di VPS dengan perintah: docker network ls
-      name: my-madena_madena_network
+    external: true
+    name: my-madena_madena_network
